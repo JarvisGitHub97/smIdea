@@ -13,11 +13,15 @@ config = {
   module: {
     rules: [
       {
-        test: /.vue$/,
+        test: /\.vue$/,
         loader: 'vue-loader'
       },
       {
-        test: /.css$/,
+        test: /\.jsx$/,
+        loader: 'babel-loader'
+      },
+      {
+        test: /\.css$/,
         use: [
           'style-loader',
           'css-loader'
@@ -28,6 +32,12 @@ config = {
         use: [
           'style-loader',
           'css-loader',
+          {
+            loader: "postcss-loader",
+            options: {
+              sourceMap:true
+            }
+          },
           'stylus-loader'
         ]
       },
